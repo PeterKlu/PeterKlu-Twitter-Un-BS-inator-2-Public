@@ -1,0 +1,13 @@
+async function writeToFileAndRespond(fs, fileName, valueToWrite, message, interaction) {
+    try {
+        await interaction.reply({ content: message, ephemeral: true }).then(() => {
+            fs.writeFileSync(fileName, valueToWrite);
+        });
+        console.log('Successfully updated ' + fileName);
+    } catch(e) {
+        await interaction.reply({ content: 'Error writing to file', ephemeral: true });  
+        console.error(e);      
+    }
+}
+
+module.exports = writeToFileAndRespond;

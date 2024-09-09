@@ -1,0 +1,14 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
+
+function init(commands, blacklist, whitelist) {
+    commands.create({
+        name: blacklist,
+        description: 'Will remove yourself from the whitelist and prevent me from responding to your Twitter links',
+    });
+    commands.create({
+        name: whitelist,
+        description: 'Will allow me to respond to your Twitter links',
+    });
+}
+
+module.exports = init;
